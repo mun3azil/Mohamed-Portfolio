@@ -1,36 +1,449 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# �� محفظة محمد الشخصية | Personal Portfolio
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-14.0.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/Build-Passing-success?style=for-the-badge)](https://github.com/mun3azil/portfolio)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
 
-First, run the development server:
+موقع ويب شخصي أنيق وحديث مبني باستخدام Next.js مع تحسينات شاملة للأداء، الوصولية، الأمان، ودعم متعدد اللغات.  
+تم تصميمه ليكون سريعًا، متجاوبًا، وسهل الاستخدام، مع لمسة جمالية ناعمة وتأثيرات حركية ذكية ✨.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📋 محتويات الملف
+
+- [الميزات الأساسية](#-الميزات-الأساسية)
+- [التقنيات المستخدمة](#️-التقنيات-المستخدمة)
+- [هيكل المشروع](#-هيكل-المشروع)
+- [المكونات الرئيسية](#-المكونات-الرئيسية)
+- [التشغيل المحلي](#️-التشغيل-المحلي-local-development)
+- [الأسئلة الشائعة](#-الأسئلة-الشائعة-faq)
+- [الترجمة](#-الترجمة)
+- [الإبلاغ عن الأخطاء](#-الإبلاغ-عن-الأخطاء)
+- [طلب ميزات جديدة](#-طلب-ميزات-جديدة)
+- [تحسين الأداء](#-تحسين-الأداء)
+- [تحسين الوصولية](#-تحسين-الوصولية)
+- [تحسين SEO](#-تحسين-seo)
+- [المساهمة](#-المساهمة)
+- [الترخيص](#-الترخيص-license)
+- [معلومات الاتصال](#-معلومات-الاتصال)
+
+## 🎯 الميزات الأساسية
+
+- 🎨 تصميم متجاوب بالكامل مع TailwindCSS
+- 🌙 دعم الوضع الليلي (Dark Mode) والنهاري (Light Mode)
+- 🌐 دعم الترجمة وتعدد اللغات (i18n)
+- ⚡ تحميل مكونات ذكي (Dynamic Imports + Lazy Loading)
+- ♿ تجربة وصولية محسنة (Aria labels + Focus Rings)
+- 🔍 تحسين محركات البحث (SEO) مع Metadata و OpenGraph
+- 🛡️ حماية محسنة عبر Security Headers مخصصة
+- 🎬 تأثيرات حركية متقنة باستخدام Framer Motion
+- 🏎️ أداء عالي وتجربة مستخدم سلسة جدًا
+
+## 🛠️ التقنيات المستخدمة
+
+- [Next.js 14+](https://nextjs.org/)
+- [React 18+](https://react.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Headless UI](https://headlessui.dev/)
+- [i18next](https://react.i18next.com/)
+- [ESLint + Prettier](https://eslint.org/)
+
+## 📁 هيكل المشروع
+
+```
+├── src/
+│   ├── app/                 # صفحات التطبيق
+│   │   ├── layout.tsx      # التخطيط الرئيسي
+│   │   ├── page.tsx        # الصفحة الرئيسية
+│   │   └── globals.css     # الأنماط العامة
+│   ├── components/         # المكونات القابلة لإعادة الاستخدام
+│   │   ├── ui/            # مكونات واجهة المستخدم الأساسية
+│   │   └── sections/      # أقسام الصفحة
+│   ├── lib/               # المكتبات والأدوات المساعدة
+│   ├── styles/            # ملفات الأنماط الإضافية
+│   └── utils/             # وظائف مساعدة
+├── public/                # الملفات الثابتة
+├── locales/              # ملفات الترجمة
+└── package.json          # تبعيات المشروع
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧩 المكونات الرئيسية
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🎨 مكونات واجهة المستخدم (UI Components)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Button**: زر متعدد الأنماط مع دعم للوضع الليلي والنهاري
+- **Card**: بطاقة معلومات مع تأثيرات حركية
+- **Modal**: نافذة منبثقة قابلة للتخصيص
+- **Navbar**: شريط تنقل متجاوب
+- **Footer**: تذييل الصفحة مع روابط مهمة
 
-## Learn More
+### 📱 أقسام الصفحة (Page Sections)
 
-To learn more about Next.js, take a look at the following resources:
+- **Hero**: قسم رئيسي جذاب مع خلفية متحركة
+- **About**: معلومات عني ومهاراتي
+- **Projects**: معرض المشاريع السابقة
+- **Skills**: عرض المهارات التقنية
+- **Contact**: نموذج اتصال مع التحقق من الصحة
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🛠️ أدوات مساعدة (Utilities)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **ThemeProvider**: إدارة الوضع الليلي والنهاري
+- **LanguageProvider**: إدارة اللغات والترجمة
+- **SEO**: تحسين محركات البحث
+- **Analytics**: تتبع زيارات الموقع
 
-## Deploy on Vercel
+## 🏗️ التشغيل المحلي (Local Development)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# 1. استنساخ المشروع
+git clone https://github.com/mun3azil/portfolio.git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 2. الدخول إلى مجلد المشروع
+cd portfolio
+
+# 3. تثبيت التبعيات
+npm install
+
+# 4. تشغيل الخادم المحلي
+npm run dev
+```
+
+📝 ملاحظة: الخادم سيكون متاحًا عادة على http://localhost:3000.
+
+### ⚙️ متغيرات البيئة (Environment Variables)
+
+تأكد من إنشاء ملف `.env.local` يحتوي على:
+
+```env
+# إعدادات الموقع الأساسية
+NEXT_PUBLIC_SITE_URL=https://mohammed.dev
+NEXT_PUBLIC_SITE_NAME=محفظة محمد
+NEXT_PUBLIC_SITE_DESCRIPTION=موقع شخصي لمحمد - مطور ويب
+
+# إعدادات اللغة
+NEXT_PUBLIC_DEFAULT_LOCALE=ar
+NEXT_PUBLIC_SUPPORTED_LANGUAGES=ar,en
+
+# إعدادات التواصل
+NEXT_PUBLIC_EMAIL=contact@mohammed.dev
+NEXT_PUBLIC_GITHUB_URL=https://github.com/mun3azil
+NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/mun3azil
+
+# إعدادات API (إذا لزم الأمر)
+NEXT_PUBLIC_API_URL=https://api.mohammed.dev
+```
+
+### 🏁 بناء نسخة الإنتاج (Production Build)
+
+لإنشاء نسخة Production جاهزة للنشر:
+
+```bash
+# بناء المشروع
+npm run build
+
+# تشغيل نسخة الإنتاج
+npm start
+
+# أو استخدام Vercel للنشر التلقائي
+vercel --prod
+```
+
+🚀 تأكد من اختبار النسخة النهائية مع أدوات مثل Lighthouse لضمان الأداء والأمان!
+
+### 📸 لقطات شاشة
+
+| الوضع النهاري                                   | الوضع الليلي                                  |
+| ----------------------------------------------- | --------------------------------------------- |
+| ![الوضع النهاري](/public/screenshots/light.png) | ![الوضع الليلي](/public/screenshots/dark.png) |
+
+### 📢 ملاحظات إضافية
+
+- تم تحسين الوصولية بإضافة aria-labels وتركيز مرئي واضح لجميع التفاعلات.
+- كل المكونات تم تحسينها لتحقيق سرعة تحميل أعلى واستجابة فورية للمستخدم.
+- تم الالتزام بأفضل ممارسات SEO الحديثة لضمان ظهور الموقع بأفضل صورة في نتائج البحث.
+- دعم الوضع الليلي تم تنفيذه بشكل ذكي ومتجاوب مع إعدادات النظام الأساسية للمستخدم.
+
+---
+
+## ❓ الأسئلة الشائعة (FAQ)
+
+### هل يمكنني استخدام هذا المشروع كقالب لمشروعي الشخصي؟
+
+نعم، يمكنك استخدام هذا المشروع كقالب لمشروعك الشخصي. فقط تأكد من تغيير المعلومات الشخصية والصور.
+
+### كيف يمكنني تغيير الألوان والأنماط؟
+
+يمكنك تخصيص الألوان والأنماط من خلال ملف `tailwind.config.js` وملفات CSS في مجلد `styles`.
+
+### هل يدعم المشروع إضافة لغات جديدة؟
+
+نعم، يمكنك إضافة لغات جديدة بسهولة من خلال إضافة ملفات الترجمة في مجلد `locales`.
+
+### كيف يمكنني إضافة مشروع جديد إلى قسم المشاريع؟
+
+يمكنك إضافة مشروع جديد من خلال تحديث ملف `projects.ts` في مجلد `data`.
+
+---
+
+## 🌐 الترجمة
+
+نرحب بمساهماتكم في ترجمة الموقع إلى لغات جديدة! إذا كنت ترغب في المساهمة في الترجمة، اتبع الخطوات التالية:
+
+1. Fork المشروع
+2. انسخ ملف الترجمة الحالي من `locales/ar.json` إلى ملف جديد باسم اللغة الجديدة (مثل `locales/fr.json`)
+3. قم بترجمة جميع النصوص في الملف
+4. أضف اللغة الجديدة إلى `NEXT_PUBLIC_SUPPORTED_LANGUAGES` في ملف `.env.local`
+5. قم بإنشاء Pull Request
+
+### قائمة اللغات المدعومة حاليًا:
+
+- العربية (ar) - الافتراضية
+- الإنجليزية (en)
+
+---
+
+## 🐛 الإبلاغ عن الأخطاء
+
+إذا وجدت خطأً في المشروع، يرجى اتباع الخطوات التالية:
+
+1. تأكد من أن الخطأ لم يتم الإبلاغ عنه مسبقًا من خلال البحث في [Issues](https://github.com/mun3azil/portfolio/issues)
+2. قم بإنشاء Issue جديد مع وصف تفصيلي للمشكلة
+3. قم بتضمين خطوات لإعادة إنتاج الخطأ
+4. قم بتضمين معلومات عن نظام التشغيل والمتصفح الذي تستخدمه
+5. قم بتضمين لقطات شاشة إذا كان ذلك مناسبًا
+
+### قالب الإبلاغ عن الأخطاء:
+
+```markdown
+## وصف المشكلة
+
+[وصف تفصيلي للمشكلة]
+
+## خطوات إعادة إنتاج المشكلة
+
+1. [الخطوة الأولى]
+2. [الخطوة الثانية]
+3. [الخطوة الثالثة]
+
+## السلوك المتوقع
+
+[وصف ما كنت تتوقعه أن يحدث]
+
+## السلوك الفعلي
+
+[وصف ما حدث بالفعل]
+
+## معلومات إضافية
+
+- نظام التشغيل: [مثل Windows 10]
+- المتصفح: [مثل Chrome 91]
+- إصدار المشروع: [مثل v1.0.0]
+```
+
+---
+
+## 🚀 طلب ميزات جديدة
+
+نرحب بطلبات الميزات الجديدة! إذا كان لديك فكرة لميزة جديدة، يرجى اتباع الخطوات التالية:
+
+1. تأكد من أن الميزة لم يتم طلبها مسبقًا من خلال البحث في [Issues](https://github.com/mun3azil/portfolio/issues)
+2. قم بإنشاء Issue جديد مع وصف تفصيلي للميزة
+3. قم بتضمين أمثلة على كيفية عمل الميزة
+4. قم بتضمين أي معلومات إضافية قد تكون مفيدة
+
+### قالب طلب الميزات:
+
+```markdown
+## وصف الميزة
+
+[وصف تفصيلي للميزة]
+
+## أمثلة على الاستخدام
+
+[أمثلة على كيفية عمل الميزة]
+
+## معلومات إضافية
+
+[أي معلومات إضافية قد تكون مفيدة]
+```
+
+---
+
+## ⚡ تحسين الأداء
+
+نرحب بمساهماتكم في تحسين أداء المشروع! إذا كان لديك أفكار لتحسين الأداء، يرجى اتباع الخطوات التالية:
+
+1. قم بتحليل أداء المشروع باستخدام أدوات مثل Lighthouse أو WebPageTest
+2. حدد مجالات التحسين
+3. قم بتنفيذ التحسينات
+4. قم بقياس التحسينات
+5. قم بإنشاء Pull Request مع وصف للتحسينات
+
+### مجالات التحسين المحتملة:
+
+- تحسين تحميل الصور
+- تقليل حجم JavaScript
+- تحسين CSS
+- تحسين التحميل الكسول
+- تحسين التخزين المؤقت
+
+---
+
+## ♿ تحسين الوصولية
+
+نرحب بمساهماتكم في تحسين وصولية المشروع! إذا كان لديك أفكار لتحسين الوصولية، يرجى اتباع الخطوات التالية:
+
+1. قم بتحليل وصولية المشروع باستخدام أدوات مثل axe أو WAVE
+2. حدد مجالات التحسين
+3. قم بتنفيذ التحسينات
+4. قم باختبار التحسينات
+5. قم بإنشاء Pull Request مع وصف للتحسينات
+
+### مجالات التحسين المحتملة:
+
+- تحسين التنقل بلوحة المفاتيح
+- تحسين قراءة الشاشة
+- تحسين التباين
+- تحسين النصوص البديلة للصور
+- تحسين هيكل HTML
+
+---
+
+## 🔍 تحسين SEO
+
+نرحب بمساهماتكم في تحسين SEO للمشروع! إذا كان لديك أفكار لتحسين SEO، يرجى اتباع الخطوات التالية:
+
+1. قم بتحليل SEO للمشروع باستخدام أدوات مثل Google Search Console أو SEMrush
+2. حدد مجالات التحسين
+3. قم بتنفيذ التحسينات
+4. قم بقياس التحسينات
+5. قم بإنشاء Pull Request مع وصف للتحسينات
+
+### مجالات التحسين المحتملة:
+
+- تحسين العناوين والوصف
+- تحسين هيكل HTML
+- تحسين سرعة التحميل
+- تحسين المحتوى
+- تحسين الروابط الداخلية والخارجية
+
+---
+
+## 🤝 المساهمة
+
+نرحب بجميع المساهمات! سواء كانت تحسينات للكود، إصلاحات للأخطاء، أو إضافة ميزات جديدة. إذا كنت ترغب في المساهمة، يرجى اتباع الخطوات التالية:
+
+1. Fork المشروع
+2. إنشاء فرع جديد (`git checkout -b feature/amazing-feature`)
+3. Commit التغييرات (`git commit -m 'إضافة ميزة رائعة'`)
+4. Push إلى الفرع (`git push origin feature/amazing-feature`)
+5. فتح Pull Request
+
+### إرشادات المساهمة:
+
+- تأكد من اتباع نمط الترميز المستخدم في المشروع
+- تأكد من اختبار التغييرات قبل إرسال Pull Request
+- تأكد من تحديث الوثائق عند إجراء تغييرات كبيرة
+- تأكد من إضافة اختبارات للميزات الجديدة
+
+### عملية مراجعة الكود:
+
+1. سيتم مراجعة جميع Pull Requests من قبل الفريق الأساسي
+2. قد نطلب منك إجراء تغييرات قبل قبول Pull Request
+3. بمجرد الموافقة، سيتم دمج التغييرات في الفرع الرئيسي
+
+---
+
+## 📜 الرخصة (License)
+
+تم ترخيص هذا المشروع تحت رخصة MIT License. راجع ملف [LICENSE](LICENSE) للمزيد من المعلومات.
+
+### شروط الترخيص:
+
+- يمكنك استخدام هذا المشروع لأي غرض
+- يمكنك تعديل هذا المشروع
+- يمكنك توزيع هذا المشروع
+- يمكنك استخدام هذا المشروع تجاريًا
+- يجب عليك تضمين إشعار الترخيص الأصلي
+
+---
+
+## 📞 معلومات الاتصال
+
+- البريد الإلكتروني: contact@mohammed.dev
+- GitHub: [@mun3azil](https://github.com/mun3azil)
+- LinkedIn: [محمد](https://linkedin.com/in/mun3azil)
+
+### ساعات العمل:
+
+- الاثنين إلى الجمعة: 9:00 صباحًا - 5:00 مساءً (بتوقيت مصر)
+- عطلة نهاية الأسبوع: مغلق
+
+🙌 شكراً لإلقاء نظرة على المشروع! إذا أعجبك العمل أو كان لديك اقتراحات لتحسينه، لا تتردد في فتح Issue أو Pull Request. 🚀
+
+---
+
+## 💡 ملاحظات وتغذية راجعة
+
+نرحب بأي ملاحظات أو اقتراحات لتحسين المشروع! يمكنك:
+
+1. فتح Issue جديد
+2. إرسال بريد إلكتروني
+3. التواصل عبر LinkedIn
+
+سنقوم بمراجعة جميع الملاحظات والاقتراحات والرد عليها في أقرب وقت ممكن.
+
+---
+
+## 🌟 شكر خاص
+
+شكر خاص لجميع المساهمين والمستخدمين الذين ساعدوا في تطوير وتحسين هذا المشروع. شكركم لا يقدر بثمن! 🙏
+
+## دعم PWA
+
+تم تفعيل دعم PWA في هذا المشروع باستخدام مكتبة `next-pwa`.
+
+### لتفعيل/تعطيل PWA:
+
+- أثناء التطوير (`npm run dev`) يتم تعطيل Service Worker تلقائيًا.
+- عند البناء (`npm run build`) يتم إنشاء Service Worker تلقائيًا.
+- في حال واجهت مشاكل كاش أثناء التطوير، يمكنك:
+  - الذهاب إلى DevTools > Application > Service Workers > Unregister.
+  - عمل Refresh مع حذف الكاش (Ctrl+Shift+R).
+
+### نصيحة:
+
+ينصح باختبار النسخة النهائية (production) لتجربة تجربة PWA بشكل صحيح.
+
+## التثبيت والتشغيل
+
+```bash
+# تثبيت التبعيات
+npm install
+
+# تشغيل في وضع التطوير
+npm run dev
+
+# بناء المشروع
+npm run build
+
+# تشغيل النسخة النهائية
+npm run start
+```
+
+## التقنيات المستخدمة
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- PWA Support
+
+## النشر على Vercel
+
+لو نشرت على Vercel، ما تحتاج أي إعدادات خاصة إضافية.
+فقط تأكد من:
+
+- أن الملف next.config.js موجود ومحدث
+- أن مجلد public/ فيه أيقونات وملف manifest.json

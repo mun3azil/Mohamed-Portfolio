@@ -1,169 +1,222 @@
+/*
+  تم تنظيف الملف:
+  - توحيد الألوان مع tailwind.config.js
+  - إزالة @apply من القواعد غير المدعومة
+  - الاعتماد على كلاسّات Tailwind حيث أمكن
+  - إضافة تعليقات مختصرة
+*/
 @import "tailwindcss";
+@import "aos/dist/aos.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #1a365d; /* أزرق داكن */
-  --secondary: #2c5282; /* أزرق متوسط */
-  --accent: #f97316; /* برتقالي */
-  --accent-alt: #34d399; /* أخضر */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hover\:text-primary-dark:hover {
+    color: theme('colors.primary.dark');
+  }
 }
 
 :root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --spacing-small: 0.5rem;
-  --spacing-medium: 1rem;
-  --spacing-large: 2rem;
-  --font-size-small: 0.875rem;
-  --font-size-medium: 1rem;
-  --font-size-large: 1.25rem;
-  --heading-font-size-xl: 2.5rem;
-  --heading-font-size-lg: 2rem;
-  --heading-font-size-md: 1.5rem;
-  --heading-font-size-sm: 1.125rem;
-  --body-font-size: 1rem;
-  --button-font-size: 1rem;
-  --button-radius: 0.5rem;
-  --button-padding: 0.75rem 2rem;
-  --focus-outline: 2px solid var(--accent);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #2a4365;
-    --secondary: #3182ce;
-    --accent: #ed8936;
-    --accent-alt: #38b2ac;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Roboto', 'Cairo', sans-serif;
-  font-size: var(--body-font-size);
-  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  @apply bg-gray-100 dark:bg-gray-900;
+  transition: background-color 0.3s ease;
 }
 
-body.dark {
-  color: var(--foreground-dark);
-  background: var(--background-dark);
-}
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
 
-.rtl {
-  direction: rtl;
-}
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
 
-.ltr {
-  direction: ltr;
-}
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
 
-.gradient-text {
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
 
-.section {
-  padding: 4rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: 6rem 2rem;
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors duration-200;
   }
 }
 
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+    /* Fallback for browsers that don't support text-wrap */
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+html, body {
+  @apply min-h-screen;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary: theme('colors.primary.DEFAULT');
+  --primary-dark: theme('colors.primary.dark');
+  --primary-light: theme('colors.primary.light');
+  --accent: theme('colors.accent.DEFAULT');
+  --accent-dark: theme('colors.accent.dark');
+  --accent-light: theme('colors.accent.light');
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: theme('colors.primary.light');
+    --primary-dark: theme('colors.primary.DEFAULT');
+    --primary-light: theme('colors.primary.light');
+    --accent: theme('colors.accent.light');
+    --accent-dark: theme('colors.accent.DEFAULT');
+    --accent-light: theme('colors.accent.light');
+  }
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+body {
+  @apply text-gray-900 dark:text-gray-100;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+.rtl { direction: rtl; }
+.ltr { direction: ltr; }
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.section {
+  @apply py-16 md:py-24;
+}
+
 button, .btn {
-  background-color: var(--primary);
-  color: var(--foreground);
-  padding: var(--button-padding);
-  border: none;
-  border-radius: var(--button-radius);
-  font-size: var(--button-font-size);
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s;
-  outline: none;
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-200;
 }
 
 button:focus-visible, .btn:focus-visible {
-  outline: var(--focus-outline);
-  box-shadow: 0 0 0 4px rgba(249,115,22,0.15);
+  @apply outline-none ring-2 ring-offset-2 ring-primary;
 }
 
 button:hover, .btn:hover {
-  background-color: var(--accent);
-  transform: scale(1.05);
+  @apply bg-primary-dark;
+}
+
+button:active, .btn:active {
+  @apply bg-primary-dark;
 }
 
 .btn-secondary {
-  background-color: var(--secondary);
-  color: #fff;
+  @apply bg-secondary text-white hover:bg-secondary-dark;
 }
+
 .btn-secondary:hover {
-  background-color: var(--accent-alt);
+  @apply bg-secondary-dark;
 }
 
 .btn-accent {
-  background-color: var(--accent);
-  color: #fff;
+  @apply bg-accent text-white hover:bg-accent-dark;
 }
+
 .btn-accent:hover {
-  background-color: var(--primary);
+  @apply bg-accent-dark;
 }
 
 @media (max-width: 600px) {
-  h1, .h1 { font-size: 2rem; }
-  h2, .h2 { font-size: 1.5rem; }
-  h3, .h3 { font-size: 1.125rem; }
-  .section { padding: 2rem 0.5rem; }
+  h1, .h1 { @apply text-3xl; }
+  h2, .h2 { @apply text-2xl; }
+  h3, .h3 { @apply text-xl; }
+  .section { @apply py-8; }
 }
 
 h1, .h1 {
-  font-size: var(--heading-font-size-xl);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
+  @apply text-4xl font-bold mb-4;
 }
+
 h2, .h2 {
-  font-size: var(--heading-font-size-lg);
-  font-weight: 600;
-  margin-bottom: 1.25rem;
+  @apply text-3xl font-bold mb-3;
 }
+
 h3, .h3 {
-  font-size: var(--heading-font-size-md);
-  font-weight: 600;
-  margin-bottom: 1rem;
+  @apply text-2xl font-bold mb-2;
 }
+
 h4, .h4 {
-  font-size: var(--heading-font-size-sm);
-  font-weight: 500;
-  margin-bottom: 0.75rem;
+  @apply text-xl font-bold mb-2;
 }
 
-/* Utility classes for accent backgrounds and text */
-.bg-accent { background-color: var(--accent); color: #fff; }
-.bg-primary { background-color: var(--primary); color: #fff; }
-.text-accent { color: var(--accent); }
-.text-primary { color: var(--primary); }
+.bg-accent { @apply bg-accent text-white; }
+.bg-primary { @apply bg-primary text-white; }
+.text-accent { @apply text-accent; }
+.text-primary { @apply text-primary; }
 
-/* Accessibility: visually hidden class */
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+.dark .bg-accent { @apply bg-accent-dark; }
+.dark .bg-primary { @apply bg-primary-dark; }
+.dark .text-primary { @apply text-primary-light; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
 }

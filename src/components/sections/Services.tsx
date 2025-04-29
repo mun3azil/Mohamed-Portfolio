@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 interface ServiceCardProps {
   title: string;
@@ -35,10 +36,11 @@ const ServiceCard = ({ title, description, icon, link }: ServiceCardProps) => {
 };
 
 const Services = () => {
+  const { t } = useTranslation('common');
   const services = [
     {
-      title: 'تصميم وتطوير المواقع',
-      description: 'أقوم بتصميم وتطوير مواقع إلكترونية جذابة وسريعة ومتجاوبة باستخدام أحدث التقنيات مثل React وNext.js.',
+      title: t('servicesWebTitle'),
+      description: t('servicesWebDesc'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -47,8 +49,8 @@ const Services = () => {
       link: '/services#web-development',
     },
     {
-      title: 'تصميم واجهات المستخدم',
-      description: 'أصمم واجهات مستخدم جذابة وسهلة الاستخدام تعزز تجربة المستخدم وتساعد في تحقيق أهداف عملك.',
+      title: t('servicesUiTitle'),
+      description: t('servicesUiDesc'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
@@ -57,8 +59,8 @@ const Services = () => {
       link: '/services#ui-design',
     },
     {
-      title: 'تحسين محركات البحث (SEO)',
-      description: 'أساعدك في تحسين ترتيب موقعك في نتائج محركات البحث لزيادة الظهور والوصول إلى جمهور أكبر.',
+      title: t('servicesSeoTitle'),
+      description: t('servicesSeoDesc'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -67,18 +69,18 @@ const Services = () => {
       link: '/services#seo',
     },
     {
-      title: 'استضافة المواقع',
-      description: 'أقدم خدمات استضافة موثوقة وآمنة للمواقع الإلكترونية مع ضمان توفر الخدمة وسرعة التحميل.',
+      title: t('servicesHostingTitle'),
+      description: t('servicesHostingDesc'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 00-2-2m-2-4h.01M17 16h.01" />
         </svg>
       ),
       link: '/services#hosting',
     },
     {
-      title: 'الدعم الفني',
-      description: 'أوفر دعمًا فنيًا متكاملًا لموقعك الإلكتروني، بما في ذلك الصيانة والتحديثات وحل المشكلات الطارئة.',
+      title: t('servicesSupportTitle'),
+      description: t('servicesSupportDesc'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -87,8 +89,8 @@ const Services = () => {
       link: '/services#support',
     },
     {
-      title: 'التسويق الرقمي',
-      description: 'أساعدك في تسويق موقعك ومنتجاتك رقميًا من خلال استراتيجيات فعالة تزيد من المبيعات وتجذب العملاء.',
+      title: t('servicesMarketingTitle'),
+      description: t('servicesMarketingDesc'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
@@ -103,9 +105,9 @@ const Services = () => {
     <section id="services" className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">خدماتي</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('servicesTitle')}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            أقدم مجموعة متكاملة من الخدمات المتخصصة في مجال تطوير وتصميم المواقع الإلكترونية
+            {t('servicesIntro')}
           </p>
         </div>
 
@@ -126,7 +128,7 @@ const Services = () => {
             href="/services"
             className="px-8 py-4 bg-primary text-white rounded-md hover:bg-secondary transition duration-300 text-lg font-medium inline-block"
           >
-            جميع الخدمات
+            {t('servicesAllBtn')}
           </Link>
         </div>
       </div>
@@ -134,4 +136,4 @@ const Services = () => {
   );
 };
 
-export default Services; 
+export default Services;

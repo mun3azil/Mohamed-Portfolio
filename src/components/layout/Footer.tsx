@@ -1,111 +1,150 @@
-import React, { memo } from 'react';
+"use client";
+
 import Link from 'next/link';
-import { NAV_LINKS } from './navLinks'; // استيراد الروابط من المصدر الموحد
+import { useTheme } from '@/context/ThemeContext';
+import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
-const SOCIAL_LINKS = [
-  {
-    href: 'https://github.com/mohamed',
-    label: 'GitHub',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-      </svg>
-    ),
-  },
-  {
-    href: 'https://linkedin.com/in/mohamed',
-    label: 'LinkedIn',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-      </svg>
-    ),
-  },
-  {
-    href: 'https://twitter.com/mohamed',
-    label: 'Twitter',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-      </svg>
-    ),
-  },
-];
-
-const FooterNavLinks = memo(() => (
-  <ul className="space-y-2" aria-labelledby="quick-links">
-    {NAV_LINKS.map(link => (
-      <li key={link.href}>
-        <Link
-          href={link.href}
-          aria-label={link.label}
-          className="text-gray-300 hover:text-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-accent rounded"
-        >
-          {link.label}
-        </Link>
-      </li>
-    ))}
-  </ul>
-));
-FooterNavLinks.displayName = 'FooterNavLinks';
-
-const FooterSocialLinks = memo(() => (
-  <div className="flex gap-4" aria-labelledby="contact-info">
-    {SOCIAL_LINKS.map(link => (
-      <a
-        key={link.href}
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-300 hover:text-accent transition-colors duration-200 focus:outline-none focus-visible:ring-accent rounded"
-        aria-label={link.label}
-      >
-        <span className="sr-only">{link.label}</span>
-        {link.icon}
-      </a>
-    ))}
-  </div>
-));
-FooterSocialLinks.displayName = 'FooterSocialLinks';
-
+// يمكنك لاحقًا استخراج هذه الروابط لملف منفصل لو المشروع كبر
 const Footer = () => {
+  const { theme } = useTheme();
+  const { t } = useTranslation('common');
   const currentYear = new Date().getFullYear();
+  
+  const links = [
+    { href: '/about', labelKey: 'navAbout' },
+    { href: '/services', labelKey: 'navServices' },
+    { href: '/projects', labelKey: 'navProjects' },
+    { href: '/blog', labelKey: 'navBlog' },
+    { href: '/contact', labelKey: 'navContact' },
+  ];
+
+  const socialLinks = [
+    { href: '#', icon: '📘', label: 'فيسبوك' },
+    { href: '#', icon: '🐦', label: 'تويتر' },
+    { href: '#', icon: '📱', label: 'إنستغرام' },
+    { href: '#', icon: '💼', label: 'لينكد إن' },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-12" role="contentinfo">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About */}
-          <div>
-            <h2 className="text-xl font-bold mb-4 text-accent">Mohamed</h2>
-            <p className="mb-4 text-gray-300">
-              أقدم خدمات تطوير وتصميم المواقع الإلكترونية باستخدام أحدث التقنيات، مع التركيز على تحسين تجربة المستخدم ومحركات البحث.
+    <footer 
+      className="bg-light dark:bg-dark text-gray-700 dark:text-gray-300 mt-10 relative overflow-hidden"
+      role="contentinfo"
+    >
+      {/* خلفية متحركة */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10" aria-hidden="true" />
+      
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* معلومات الموقع */}
+          <div className="space-y-4">
+            <Link 
+              href="/" 
+              className="inline-block"
+              aria-label={t('footerHomeAria')}
+            >
+              <div className="relative w-32 h-16">
+                <Image
+                  src="/assets/logo.png"
+                  alt={t('greeting')}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </Link>
+            <p className="text-gray-600 dark:text-gray-400">
+              {t('footerDescription')}
             </p>
           </div>
-          {/* Quick Links */}
+
+          {/* روابط سريعة */}
           <div>
-            <h2 className="text-xl font-bold mb-4 text-accent" id="quick-links">روابط سريعة</h2>
-            <FooterNavLinks />
+            <h3 className="text-lg font-semibold mb-4">{t('footerQuickLinks')}</h3>
+            <nav className="space-y-2" aria-label={t('footerLinksAria')}>
+              {links.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
+                  aria-label={t(link.labelKey)}
+                >
+                  {t(link.labelKey)}
+                </Link>
+              ))}
+            </nav>
           </div>
-          {/* Contact Info */}
+
+          {/* معلومات الاتصال */}
           <div>
-            <h2 className="text-xl font-bold mb-4 text-accent" id="contact-info">تواصل معي</h2>
-            <p className="mb-2 text-gray-300">
-              <span className="font-bold">البريد الإلكتروني:</span> <a href="mailto:info@mohamed.com" className="hover:underline focus-visible:outline-2 focus-visible:outline-accent rounded">info@mohamed.com</a>
-            </p>
-            <p className="mb-4 text-gray-300">
-              <span className="font-bold">الهاتف:</span> <a href="tel:+1234567890" className="hover:underline focus-visible:outline-2 focus-visible:outline-accent rounded">+123 456 7890</a>
-            </p>
-            <FooterSocialLinks />
+            <h3 className="text-lg font-semibold mb-4">{t('footerContact')}</h3>
+            <div className="space-y-2">
+              <p className="flex items-center gap-2">
+                <span className="text-primary dark:text-primary-light">📧</span>
+                <a 
+                  href="mailto:contact@example.com"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
+                >
+                  contact@example.com
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-primary dark:text-primary-light">📱</span>
+                <a 
+                  href="tel:+1234567890"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
+                >
+                  +123 456 7890
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* النشرة البريدية */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">{t('footerNewsletter')}</h3>
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div className="relative">
+                <input
+                  type="email"
+                  placeholder={t('footerEmailPlaceholder')}
+                  className="w-full px-4 py-2 rounded-lg bg-white dark:bg-dark-lighter border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light"
+                  aria-label={t('footerEmailAria')}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark dark:hover:bg-primary-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light"
+              >
+                {t('footerSubscribe')}
+              </button>
+            </form>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400">
-            © {currentYear} Mohamed. جميع الحقوق محفوظة.
-          </p>
+
+        {/* حقوق النشر وروابط التواصل الاجتماعي */}
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              &copy; {currentYear} Mohammad. {t('footerCopyright')}
+            </p>
+            
+            <div className="flex gap-4">
+              {socialLinks.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
+                  aria-label={social.label}
+                >
+                  <span className="text-xl">{social.icon}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
 };
 
-export default memo(Footer);
+export default Footer;

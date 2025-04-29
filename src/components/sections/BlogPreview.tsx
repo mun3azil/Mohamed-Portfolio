@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+import React from 'react';
 
 interface BlogCardProps {
   title: string;
@@ -13,7 +15,7 @@ interface BlogCardProps {
   category: string;
 }
 
-const BlogCard = ({ title, excerpt, image, date, slug, category }: BlogCardProps) => {
+const BlogCard = React.memo(({ title, excerpt, image, date, slug, category }: BlogCardProps) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2">
       <div className="relative h-48 bg-gray-300 dark:bg-gray-700 custom-relative">
@@ -65,9 +67,10 @@ const BlogCard = ({ title, excerpt, image, date, slug, category }: BlogCardProps
       </div>
     </div>
   );
-};
+});
 
-const BlogPreview = () => {
+const BlogPreviewComponent = () => {
+  const { t } = useTranslation('common');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -80,7 +83,7 @@ const BlogPreview = () => {
       <section id="blog" className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 text-center">
           <div className="spinner border-t-4 border-primary w-16 h-16 rounded-full animate-spin mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-300">جارٍ تحميل المقالات...</p>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">{t('blogLoading')}</p>
         </div>
       </section>
     );
@@ -88,28 +91,28 @@ const BlogPreview = () => {
 
   const posts = [
     {
-      title: 'أفضل ممارسات تحسين محركات البحث لعام 2023',
-      excerpt: 'تعرف على أحدث التقنيات والممارسات لتحسين ترتيب موقعك في نتائج محركات البحث وزيادة الحركة العضوية.',
+      title: t('blog1Title'),
+      excerpt: t('blog1Excerpt'),
       image: null,
       date: '15 يناير 2023',
       slug: 'seo-best-practices-2023',
-      category: 'تحسين محركات البحث',
+      category: t('blog1Category'),
     },
     {
-      title: 'مقدمة في إطار العمل Next.js للمبتدئين',
-      excerpt: 'دليل شامل للمبتدئين للبدء في استخدام إطار عمل Next.js لبناء تطبيقات ويب سريعة وقوية ومتجاوبة.',
+      title: t('blog2Title'),
+      excerpt: t('blog2Excerpt'),
       image: null,
       date: '28 فبراير 2023',
       slug: 'nextjs-for-beginners',
-      category: 'تطوير الويب',
+      category: t('blog2Category'),
     },
     {
-      title: 'كيفية تصميم واجهات مستخدم جذابة وسهلة الاستخدام',
-      excerpt: 'نصائح وإرشادات لتصميم واجهات مستخدم تجمع بين الجمال والوظائف العملية لتحسين تجربة المستخدم وزيادة معدلات التحويل.',
+      title: t('blog3Title'),
+      excerpt: t('blog3Excerpt'),
       image: null,
       date: '10 مارس 2023',
       slug: 'designing-attractive-user-interfaces',
-      category: 'تصميم',
+      category: t('blog3Category'),
     },
   ];
 
@@ -117,12 +120,11 @@ const BlogPreview = () => {
     <section id="blog" className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">المدونة</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('blogTitle')}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            أحدث المقالات والنصائح في مجال تطوير الويب والتصميم وتحسين محركات البحث
+            {t('blogIntro')}
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, index) => (
             <BlogCard
@@ -136,13 +138,12 @@ const BlogPreview = () => {
             />
           ))}
         </div>
-
         <div className="mt-16 text-center">
           <Link
             href="/blog"
             className="px-8 py-4 bg-primary text-white rounded-md hover:bg-secondary transition duration-300 text-lg font-medium inline-block"
           >
-            جميع المقالات
+            {t('blogAllBtn')}
           </Link>
         </div>
       </div>
@@ -150,4 +151,4 @@ const BlogPreview = () => {
   );
 };
 
-export default BlogPreview;
+export default BlogPreviewComponent;

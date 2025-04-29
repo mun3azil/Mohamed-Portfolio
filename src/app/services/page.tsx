@@ -23,24 +23,24 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({ id, title, description,
             <div className="text-6xl text-primary mb-6 mx-auto md:mx-0 w-24 h-24 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-full">
               {icon}
             </div>
-            <h2 className="text-3xl font-bold mb-4">{title}</h2>
+            <h2 className="text-3xl font-bold mb-4 text-primary">{title}</h2>
           </div>
           <div className="md:w-2/3">
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+            <p className="text-lg text-gray-800 dark:text-gray-100 mb-8">
               {description}
             </p>
-            <h3 className="text-xl font-bold mb-6">ما أقدمه في هذه الخدمة:</h3>
+            <h3 className="text-xl font-bold mb-6 text-primary">ما أقدمه في هذه الخدمة:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start">
+                <div key={index} className="flex items-start bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow transition-all duration-300 ease-in-out hover:scale-105">
                   <div className="text-accent mr-4 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-bold mb-2">{feature.title}</h4>
-                    <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
+                    <h4 className="font-bold mb-2 text-gray-800 dark:text-gray-100">{feature.title}</h4>
+                    <p className="text-gray-500 dark:text-gray-400">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -207,7 +207,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">خدماتي</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 dark:text-gray-100 max-w-3xl mx-auto">
               مجموعة متكاملة من الخدمات الاحترافية لمساعدتك في بناء وتطوير حضورك الرقمي
             </p>
           </div>
@@ -218,7 +218,8 @@ export default function ServicesPage() {
               <a
                 key={service.id}
                 href={`#${service.id}`}
-                className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full shadow-md hover:shadow-lg transition duration-300"
+                className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
+                aria-label={`انتقل إلى قسم ${service.title}`}
               >
                 <span className="mr-2">{service.icon}</span>
                 {service.title}
@@ -243,13 +244,13 @@ export default function ServicesPage() {
       {/* Client Testimonials Section */}
       <section className="testimonials py-16 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">What Clients Say</h2>
+          <h2 className="text-3xl font-bold mb-6 text-primary">آراء العملاء</h2>
           <div className="testimonial mb-8">
-            <p className="text-xl text-gray-700 dark:text-gray-300">&quot;Mohammed transformed our website into a modern, user-friendly platform. Highly recommend!&quot;</p>
+            <p className="text-xl text-gray-800 dark:text-gray-100">&quot;Mohammed transformed our website into a modern, user-friendly platform. Highly recommend!&quot;</p>
             <span className="text-lg text-gray-500 dark:text-gray-400">- Client A</span>
           </div>
           <div className="testimonial">
-            <p className="text-xl text-gray-700 dark:text-gray-300">&quot;Professional and efficient. Delivered exactly what we needed.&quot;</p>
+            <p className="text-xl text-gray-800 dark:text-gray-100">&quot;Professional and efficient. Delivered exactly what we needed.&quot;</p>
             <span className="text-lg text-gray-500 dark:text-gray-400">- Client B</span>
           </div>
         </div>
@@ -264,7 +265,8 @@ export default function ServicesPage() {
           </p>
             <Link
             href="/contact"
-            className="px-8 py-4 bg-secondary text-white rounded-md hover:bg-secondary-dark transition duration-300 text-lg font-medium inline-block"
+            className="px-8 py-4 bg-secondary text-white rounded-md shadow transition-all duration-300 ease-in-out hover:scale-105 hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-accent text-lg font-medium inline-block"
+            aria-label="تواصل معي الآن"
             >
             تواصل معي الآن
             </Link>

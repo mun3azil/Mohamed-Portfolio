@@ -1,0 +1,41 @@
+.text-shadow {
+  /* مثال لتأثير ظل النص */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.custom-text-shadow {
+  /* ظل نص مخصص إذا تم تمرير prop */
+  text-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.custom-box-shadow {
+  /* ظل مخصص للأزرار إذا تم تمرير prop */
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent, #f59e42);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  z-index: 50;
+  font-size: 1rem;
+  min-width: 200px;
+  animation: fade-in-up 0.4s;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

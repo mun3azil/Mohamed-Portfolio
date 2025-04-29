@@ -219,7 +219,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">المدونة</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 dark:text-gray-100 max-w-3xl mx-auto">
               مقالات ونصائح حول تطوير الويب، تصميم المواقع، تحسين محركات البحث، وأحدث التقنيات
             </p>
           </div>
@@ -231,13 +231,14 @@ export default function BlogPage() {
         <div className="container mx-auto px-4">
           {/* Categories Filter */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button className="px-4 py-2 bg-primary text-white rounded-full">
+            <button className="px-4 py-2 bg-primary text-white rounded-full transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="عرض كل التصنيفات">
               الكل
             </button>
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+                className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
+                aria-label={`تصفية حسب تصنيف ${category}`}
               >
                 {category}
               </button>
@@ -246,13 +247,7 @@ export default function BlogPage() {
 
           {/* Featured Post */}
           <FeaturedPost
-            title={featuredPost.title}
-            excerpt={featuredPost.excerpt}
-            image={featuredPost.image}
-            date={featuredPost.date}
-            slug={featuredPost.slug}
-            category={featuredPost.category}
-            minutesToRead={featuredPost.minutesToRead}
+            {...featuredPost}
           />
 
           {/* All Posts */}
@@ -260,13 +255,7 @@ export default function BlogPage() {
             {posts.map((post, index) => (
               <BlogCard
                 key={index}
-                title={post.title}
-                excerpt={post.excerpt}
-                image={post.image}
-                date={post.date}
-                slug={post.slug}
-                category={post.category}
-                minutesToRead={post.minutesToRead}
+                {...post}
               />
             ))}
           </div>
@@ -274,17 +263,19 @@ export default function BlogPage() {
           {/* Pagination */}
           <div className="mt-16 flex justify-center">
             <nav className="flex space-x-2" aria-label="التنقل بين الصفحات">
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md">
+              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-md transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="الصفحة السابقة">
                 السابق
               </button>
-              <button className="px-4 py-2 bg-primary text-white rounded-md">1</button>
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+              <button className="px-4 py-2 bg-primary text-white rounded-md transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="الصفحة 1">
+                1
+              </button>
+              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-md transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="الصفحة 2">
                 2
               </button>
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-md transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="الصفحة 3">
                 3
               </button>
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-md transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="الصفحة التالية">
                 التالي
               </button>
             </nav>
@@ -295,8 +286,8 @@ export default function BlogPage() {
       {/* Newsletter Section */}
       <section className="py-16 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">اشترك في النشرة البريدية</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-primary">اشترك في النشرة البريدية</h2>
+          <p className="text-xl text-gray-800 dark:text-gray-100 mb-8 max-w-2xl mx-auto">
             احصل على أحدث المقالات والنصائح في مجال تطوير الويب مباشرة إلى بريدك الإلكتروني
           </p>
           <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
@@ -305,10 +296,12 @@ export default function BlogPage() {
               placeholder="بريدك الإلكتروني"
               className="flex-grow px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
               required
+              aria-label="البريد الإلكتروني"
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white rounded-md hover:bg-secondary transition duration-300"
+              className="px-6 py-3 bg-primary text-white rounded-md shadow transition-all duration-300 ease-in-out hover:scale-105 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-accent"
+              aria-label="الاشتراك في النشرة البريدية"
             >
               اشتراك
             </button>
@@ -317,4 +310,4 @@ export default function BlogPage() {
       </section>
     </div>
   );
-} 
+}

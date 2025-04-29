@@ -1,0 +1,13 @@
+{
+  "greeting": "Hello",
+  "aboutMe": "About Me",
+  "contact": "Contact",
+  "navHome": "Home",
+  "navAbout": "About Me",
+  "navServices": "Services",
+  "navWebDev": "Web Development",
+  "navMobileDev": "Mobile Development",
+  "navProjects": "Projects",
+  "navBlog": "Blog",
+  "navContact": "Contact"
+}

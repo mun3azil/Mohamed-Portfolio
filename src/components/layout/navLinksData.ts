@@ -1,4 +1,6 @@
-// تعريف نوع الرابط للمزيد من الوضوح وقابلية التوسعة
+// ملف مركزي لتعريف جميع روابط التنقل للموقع
+// يمكن استيراده في أي مكون (Header, Footer, إلخ)
+
 export type NavLink = {
   href: string;
   label: string;
@@ -10,7 +12,7 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   {
     href: '/',
-    label: 'الصفحة الرئيسية',
+    label: 'الرئيسية',
     ariaLabel: 'الذهاب إلى الصفحة الرئيسية',
   },
   {
@@ -36,7 +38,7 @@ export const NAV_LINKS: NavLink[] = [
   {
     href: '/contact',
     label: 'اتصل بي',
-    ariaLabel: 'اتصل بي للحصول على المزيد من المعلومات',
+    ariaLabel: 'التواصل معي',
   },
   {
     href: '/about-project',
@@ -58,7 +60,7 @@ export const NAV_LINKS: NavLink[] = [
     label: 'شهاداتي',
     ariaLabel: 'مراجعة شهاداتي',
   },
-  // روابط الشبكات الاجتماعية
+  // روابط الشبكات الاجتماعية (خارجية)
   {
     href: 'https://linkedin.com/in/username',
     label: 'LinkedIn',
