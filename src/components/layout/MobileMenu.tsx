@@ -44,7 +44,7 @@ const MobileMenu = ({ onClose, isOpen, links }: MobileMenuProps) => {
             <div key={link.href} className="relative">
               <Link
                 href={link.href}
-                className="site-header__mobile-link flex items-center gap-2 text-gray-800 dark:text-gray-100 hover:text-primary dark:hover:text-accent transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent active:text-primary py-2 rounded"
+                className="site-header__mobile-link flex items-center w-full gap-2 text-gray-800 dark:text-gray-100 hover:text-primary dark:hover:text-accent transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent active:text-primary py-2 rounded"
                 onClick={onClose}
                 aria-label={link.aria}
                 aria-expanded={link.subLinks ? openDropdown === link.href : undefined}
@@ -82,3 +82,4 @@ const MobileMenu = ({ onClose, isOpen, links }: MobileMenuProps) => {
 };
 
 export default MobileMenu;
+
