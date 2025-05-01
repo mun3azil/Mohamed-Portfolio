@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import "@/styles/about.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { ThemeProvider } from '@/context/ThemeContext';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 import ClientMain from '@/components/ui/ClientMain';
 import ErrorBoundary from '@/components/layout/ErrorBoundary';
 import ScrollToTop from '@/components/ui/ScrollToTop';
@@ -120,11 +121,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params?: { locale?: string };
 }>) {
+  // Default to Arabic if no locale is specified
+  const locale = params?.locale || 'ar';
+  const isRTL = locale === 'ar';
+
   return (
-    <html lang="ar" dir="rtl">
+    <html lang={locale} dir={isRTL ? 'rtl' : 'ltr'} suppressHydrationWarning>
       {/* Head tags are now handled by the metadata object above */}
       <body
         className={`${roboto.variable} ${cairo.variable} font-sans antialiased`}

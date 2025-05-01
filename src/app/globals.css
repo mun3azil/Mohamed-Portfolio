@@ -12,6 +12,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom cursor styles */
+#about-page {
+  cursor: none;
+}
+
+#about-page a,
+#about-page button,
+#about-page [role="button"] {
+  cursor: none;
+}
+
+/* Hide default cursor on about page for desktop only */
+@media (min-width: 768px) {
+  #about-page * {
+    cursor: none;
+  }
+}
+
+/* But show default cursor on mobile devices */
+@media (max-width: 767px) {
+  #about-page * {
+    cursor: auto;
+  }
+}
+
 @layer components {
   .hover\:text-primary-dark:hover {
     color: theme('colors.primary.dark');

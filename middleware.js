@@ -1,9 +1,14 @@
-import { i18n } from '../next-i18next.config';
 import { NextResponse } from 'next/server';
 
+// Supported locales
+const locales = ['en', 'ar'];
+const defaultLocale = 'ar';
+
 export function middleware(request) {
+  // Get the pathname from the request
   const { pathname } = request.nextUrl;
-  // إذا كان الرابط يبدأ بـ /_next أو /api أو ملف ثابت، تجاهل
+
+  // Skip middleware for static files, API routes, etc.
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
@@ -11,15 +16,25 @@ export function middleware(request) {
   ) {
     return NextResponse.next();
   }
-  // إذا كان الرابط لا يحتوي على بادئة لغة، أعد التوجيه للغة الافتراضية
-  const hasLocale = i18n.locales.some((lng) => pathname.startsWith(`/${lng}`));
-  if (!hasLocale) {
-    const locale = i18n.defaultLocale;
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
+
+  // Check if the pathname already has a locale
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
+
+  // If pathname doesn't have locale, redirect to the default locale
+  if (!pathnameHasLocale) {
+    const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+    return NextResponse.redirect(newUrl);
   }
-  return NextResponse.next();
+
+  // Add x-pathname header for use in generateMetadata
+  const response = NextResponse.next();
+  response.headers.set('x-pathname', pathname);
+
+  return response;
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|.*\..*).*)'],
+  matcher: ['/((?!api|_next|.*\\..*).*)', '/'],
 };
