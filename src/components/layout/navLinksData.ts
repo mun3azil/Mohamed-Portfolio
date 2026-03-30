@@ -1,76 +1,45 @@
-// ملف مركزي لتعريف جميع روابط التنقل للموقع
-// يمكن استيراده في أي مكون (Header, Footer, إلخ)
+// Centralized navigation links configuration for the entire application
+// Used by Header, Footer, MobileMenu, and other navigation components
 
-export type NavLink = {
+import { MessageDescriptor } from 'next-intl';
+
+export interface NavLink {
   href: string;
-  label: string;
-  ariaLabel: string;
+  labelKey: MessageDescriptor;
+  ariaLabelKey: MessageDescriptor;
   external?: boolean;
-};
+}
 
-// روابط التنقل الرئيسية للموقع (تستخدم في Header وFooter)
+// Main navigation links used across the application
 export const NAV_LINKS: NavLink[] = [
   {
     href: '/',
-    label: 'الرئيسية',
-    ariaLabel: 'الذهاب إلى الصفحة الرئيسية',
+    labelKey: { id: 'navHome', defaultMessage: 'Home' },
+    ariaLabelKey: { id: 'navHomeAria', defaultMessage: 'Go to homepage' },
   },
   {
     href: '/about',
-    label: 'من أنا',
-    ariaLabel: 'تعرف على المزيد عني',
+    labelKey: { id: 'navAbout', defaultMessage: 'About' },
+    ariaLabelKey: { id: 'navAboutAria', defaultMessage: 'Learn more about me' },
   },
   {
     href: '/services',
-    label: 'خدماتي',
-    ariaLabel: 'استكشاف خدماتي',
+    labelKey: { id: 'navServices', defaultMessage: 'Services' },
+    ariaLabelKey: { id: 'navServicesAria', defaultMessage: 'Explore my services' },
   },
   {
     href: '/projects',
-    label: 'مشاريعي',
-    ariaLabel: 'عرض مشاريعي',
+    labelKey: { id: 'navProjects', defaultMessage: 'Projects' },
+    ariaLabelKey: { id: 'navProjectsAria', defaultMessage: 'View my projects' },
   },
   {
     href: '/blog',
-    label: 'المدونة',
-    ariaLabel: 'قراءة المدونة',
+    labelKey: { id: 'navBlog', defaultMessage: 'Blog' },
+    ariaLabelKey: { id: 'navBlogAria', defaultMessage: 'Read the blog' },
   },
   {
     href: '/contact',
-    label: 'اتصل بي',
-    ariaLabel: 'التواصل معي',
-  },
-  {
-    href: '/about-project',
-    label: 'عن المشروع',
-    ariaLabel: 'معلومات عن المشروع',
-  },
-  {
-    href: '/testimonials',
-    label: 'آراء العملاء',
-    ariaLabel: 'استعراض آراء العملاء',
-  },
-  {
-    href: '/cv',
-    label: 'سيرتي الذاتية',
-    ariaLabel: 'اطلع على سيرتي الذاتية',
-  },
-  {
-    href: '/certifications',
-    label: 'شهاداتي',
-    ariaLabel: 'مراجعة شهاداتي',
-  },
-  // روابط الشبكات الاجتماعية (خارجية)
-  {
-    href: 'https://linkedin.com/in/username',
-    label: 'LinkedIn',
-    ariaLabel: 'زيارة حساب LinkedIn',
-    external: true,
-  },
-  {
-    href: 'https://github.com/username',
-    label: 'GitHub',
-    ariaLabel: 'زيارة حساب GitHub',
-    external: true,
+    labelKey: { id: 'navContact', defaultMessage: 'Contact' },
+    ariaLabelKey: { id: 'navContactAria', defaultMessage: 'Get in touch' },
   },
 ];
