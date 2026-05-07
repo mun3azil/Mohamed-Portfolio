@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "actions": {
+    "startProject": "Start a Project",
+    "viewCaseStudy": "View Case Study",
+    "live": "Live",
+    "code": "Code",
+    "readArticle": "Read article →"
+  },
+  "hero": {
+    "eyebrow": "Full Stack Developer",
+    "title": "I build conversion-focused web products that drive qualified leads.",
+    "subtitle": "From architecture to UX execution, I help teams ship fast websites that turn traffic into real client conversations.",
+    "trustSignal": "Trusted workflow: strategy → implementation → measurable business outcomes.",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "years": "Years Experience"
+    }
+  },
+  "blogCta": {
+    "eyebrow": "Need this level of execution for your product?",
+    "title": "Let’s turn your roadmap into a conversion-focused release.",
+    "description": "Share your goals and I will reply with a concrete action plan within 24 hours."
+  },
+  "blog": {
+    "eyebrow": "Insights for builders",
+    "title": "Blog",
+    "subtitle": "Practical notes on shipping better products.",
+    "emptyState": "Articles are coming soon. Check back shortly."
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "title": "Projects",
+    "subtitle": "Case studies focused on usability, performance, and scalable frontend architecture.",
+    "viewCaseStudy": "View Case Study",
+    "caseStudyEyebrow": "Case Study",
+    "techDecisions": "Tech decisions",
+    "measurableOutcome": "Measurable outcome",
+    "startProject": "Start a Project",
+    "viewLiveProject": "View Live Project",
+    "caseStudySuffix": "Case Study",
+    "notFoundTitle": "Case Study Not Found"
+  },
+  "contact": {
+    "title": "Start a Project",
+    "description": "Share your goals and constraints. I will reply with a clear next step within 24 hours.",
+    "responseTime": "Response time",
+    "email": "Email",
+    "location": "Location",
+    "name": "Name",
+    "projectType": "Project type",
+    "budget": "Budget",
+    "timeline": "Timeline",
+    "details": "Project details (optional)",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@company.com",
+    "detailsPlaceholder": "What are you trying to build?",
+    "selectProjectType": "Select project type",
+    "selectBudget": "Select budget",
+    "selectTimeline": "Select timeline",
+    "submit": "Submit Project Brief",
+    "sending": "Sending...",
+    "success": "Thanks — your brief was sent successfully.",
+    "error": "Please review the form fields and try again.",
+    "errors": {
+      "nameRequired": "Name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email.",
+      "projectTypeRequired": "Select a project type.",
+      "budgetRequired": "Select a budget range.",
+      "timelineRequired": "Select a timeline."
+    }
+  },
+  "toggles": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

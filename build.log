@@ -1,0 +1,47 @@
+
+> portfolio-app@0.1.0 build
+> next build
+
+   ▲ Next.js 15.3.2
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 36.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/18) ...
+   Generating static pages (4/18) 
+   Generating static pages (8/18) 
+   Generating static pages (13/18) 
+ ✓ Generating static pages (18/18)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                   Size  First Load JS
+┌ ○ /                                        136 B         101 kB
+├ ○ /_not-found                              977 B         102 kB
+├ ● /[locale]                              8.16 kB         120 kB
+├   ├ /en
+├   └ /ar
+├ ● /[locale]/blog                         2.67 kB         115 kB
+├   ├ /en/blog
+├   └ /ar/blog
+├ ○ /blog                                    968 B         113 kB
+├ ● /blog/[slug]                           2.61 kB         115 kB
+├   ├ /blog/design-system-first-frontend
+├   └ /blog/performance-by-default-nextjs
+└ ● /projects/[slug]                         901 B         113 kB
+    ├ /projects/ecommerce-platform
+    ├ /projects/task-manager
+    ├ /projects/weather-dashboard
+    └ [+3 more paths]
++ First Load JS shared by all               101 kB
+  ├ chunks/4bd1b696-5948de6e82dc5240.js    53.2 kB
+  ├ chunks/684-5e9d3933304db3cc.js         45.9 kB
+  └ other shared chunks (total)            2.03 kB
+
+
+ƒ Middleware                               35.5 kB
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

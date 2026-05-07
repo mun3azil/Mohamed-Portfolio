@@ -1,0 +1,24 @@
+# Performance by Default in Next.js App Router
+
+Performance should be an architectural default, not a final optimization pass.
+
+## Core principles
+
+- Keep components server-rendered unless interactivity is truly required.
+- Use dynamic imports for non-critical sections.
+- Optimize images via `next/image` with correct `sizes` and `priority` usage.
+- Keep metadata and JSON-LD server-side to avoid hydration overhead.
+
+## What usually hurts bundles
+
+- Overusing client components.
+- Importing heavy dependencies into critical path modules.
+- Repeating static data across components.
+
+## What improves outcomes
+
+1. Centralized data files and typed content models.
+2. Feature-level code boundaries to limit accidental imports.
+3. Progressive hydration where appropriate.
+
+This approach keeps initial load light and ensures a faster first render.
