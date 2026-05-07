@@ -1,6 +1,19 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import createMDX from '@next/mdx';
+import createNextIntlPlugin from 'next-intl/plugin';
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withMDX = createMDX({
+  extension: /\.(md|mdx)$/,
+});
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
 
 const nextConfig: NextConfig = {
+  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  allowedDevOrigins: ['192.168.27.1'],
+
   // Image optimization configuration
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -20,18 +33,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'react-markdown'],
   },
 
-  // Bundle analyzer (for development)
-  ...(process.env.ANALYZE === 'true' && {
-    webpack: (config: any) => {
-      config.plugins.push(
-        new (require('@next/bundle-analyzer')({
-          enabled: true,
-        }))()
-      );
-      return config;
-    },
-  }),
-
   // Headers for caching and security
   async headers() {
     return [
@@ -47,6 +48,10 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.emailjs.com;"
+          },
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on',
@@ -84,4 +89,4 @@ const nextConfig: NextConfig = {
   // Note: swcMinify is enabled by default in Next.js 15+ and deprecated as a config option
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(withNextIntl(withMDX(nextConfig)));

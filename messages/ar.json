@@ -1,0 +1,125 @@
+{
+  "navigation": {
+    "home": "الرئيسية",
+    "projects": "المشاريع",
+    "skills": "المهارات",
+    "about": "نبذة",
+    "contact": "تواصل",
+    "blog": "المدونة"
+  },
+  "blog": {
+    "eyebrow": "رؤى عملية للمطورين",
+    "title": "المدونة",
+    "subtitle": "ملاحظات عملية لبناء وإطلاق منتجات أفضل.",
+    "emptyState": "المقالات قادمة قريبًا. تفقّد الصفحة مرة أخرى لاحقًا."
+  },
+  "blogCta": {
+    "eyebrow": "تحتاج هذا لمشروعك؟",
+    "title": "لنحوّل زياراتك إلى عملاء محتملين مؤهلين",
+    "description": "أصمم وأبني تجارب ويب تركّز على التحويل وتدفع الزائر لاتخاذ إجراء."
+  },
+  "hero": {
+    "eyebrow": "مطور ويب متكامل",
+    "title": "أبني منتجات ويب تركّز على التحويل وتوليد عملاء محتملين مؤهلين.",
+    "subtitle": "من هندسة الحل إلى تنفيذ تجربة المستخدم، أساعد الفرق على إطلاق مواقع سريعة وعالية الأداء تحوّل الزيارات إلى محادثات عمل حقيقية.",
+    "trustSignal": "منهج موثوق: استراتيجية ← تنفيذ ← نتائج أعمال قابلة للقياس.",
+    "stats": {
+      "projects": "مشروع",
+      "clients": "عميل",
+      "years": "سنوات خبرة"
+    }
+  },
+  "actions": {
+    "startProject": "ابدأ مشروعًا",
+    "viewCaseStudy": "عرض دراسة الحالة",
+    "live": "معاينة مباشرة",
+    "code": "عرض الكود"
+  },
+  "projects": {
+    "eyebrow": "أعمال مختارة",
+    "title": "مشاريع مميزة",
+    "subtitle": "أعمال مختصة تركز على سهولة الاستخدام والأداء وهندسة الواجهة الأمامية القابلة للتوسع.",
+    "viewProject": "عرض المشروع",
+    "notFoundTitle": "المشروع غير موجود",
+    "caseStudySuffix": "— دراسة حالة",
+    "caseStudyEyebrow": "دراسة حالة",
+    "techDecisions": "القرارات التقنية",
+    "measurableOutcome": "نتائج قابلة للقياس",
+    "startProject": "ابدأ مشروعًا",
+    "viewLiveProject": "عرض المشروع المباشر"
+  },
+  "caseStudy": {
+    "title": "دراسة حالة نمو متجر إلكتروني",
+    "description": "كيف ساهمت إعادة بناء تركز على التحويل في تحسين الأداء وزيادة الاستفسارات المؤهلة."
+  },
+  "contact": {
+    "title": "ابدأ مشروعًا",
+    "description": "شارك أهدافك والقيود الخاصة بمشروعك، وسأرد عليك بخطوة تالية واضحة خلال 24 ساعة.",
+    "responseTime": "أرد عادةً خلال 24 ساعة.",
+    "responseExpectation": "أرد خلال 24 ساعة (من الأحد إلى الخميس).",
+    "email": "البريد الإلكتروني",
+    "contactEmail": "hello@mohamed.dev",
+    "emailValue": "hello@mohamed.dev",
+    "location": "الموقع",
+    "contactLocation": "القاهرة، مصر",
+    "locationValue": "القاهرة، مصر",
+    "name": "اسمك",
+    "namePlaceholder": "محمد أحمد",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "you@company.com",
+    "projectSummary": "ملخص المشروع",
+    "projectSummaryPlaceholder": "وصف مختصر لما تحتاجه...",
+    "projectType": "نوع المشروع",
+    "selectProjectType": "اختر نوع المشروع",
+    "budget": "الميزانية",
+    "selectBudget": "اختر ميزانيتك",
+    "timeline": "الجدول الزمني",
+    "selectTimeline": "اختر الجدول الزمني",
+    "details": "تفاصيل المشروع",
+    "detailsPlaceholder": "أخبرني المزيد عن مشروعك...",
+    "optionalFieldsHint": "اختياري — يمكنك تخطي هذه الحقول وسأتابع معك لاحقًا.",
+    "progressLabel": "الخطوة {current} / {total}",
+    "trustMessage": "سأرد عليك خلال 24 ساعة",
+    "continueToStep2": "متابعة",
+    "backToStep1": "رجوع",
+    "submit": "إرسال الرسالة",
+    "sending": "جاري الإرسال...",
+    "success": "تم إرسال الرسالة بنجاح! سأتواصل معك قريبًا.",
+    "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "errors": {
+      "nameRequired": "الاسم مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+      "projectSummaryRequired": "ملخص قصير للمشروع مطلوب",
+      "detailsRequired": "تفاصيل المشروع مطلوبة",
+      "projectTypeRequired": "نوع المشروع مطلوب",
+      "budgetRequired": "الميزانية مطلوبة",
+      "timelineRequired": "الجدول الزمني مطلوب"
+    },
+    "projectTypes": {
+      "marketingWebsite": "موقع تسويقي",
+      "saasDashboard": "لوحة تحكم SaaS",
+      "ecommerce": "منصة تجارة إلكترونية",
+      "designSystem": "نظام تصميم",
+      "performanceRefactor": "تحسين الأداء"
+    },
+    "budgetRanges": {
+      "range2k5k": "$2,000 - $5,000",
+      "range5k10k": "$5,000 - $10,000",
+      "range10k20k": "$10,000 - $20,000",
+      "range20kPlus": "$20,000+"
+    },
+    "timelineOptions": {
+      "asap": "في أسرع وقت",
+      "twoToFourWeeks": "2-4 أسابيع",
+      "oneToTwoMonths": "1-2 أشهر",
+      "flexible": "مرن"
+    }
+  },
+  "toggles": {
+    "language": "اللغة",
+    "theme": "المظهر",
+    "light": "فاتح",
+    "dark": "داكن"
+  }
+}

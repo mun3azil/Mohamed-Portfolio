@@ -1,28 +1,27 @@
 'use client';
 
-import { useLocale } from '@/providers/Providers';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 
-export default function LanguageToggle() {
-  const { locale, setLocale } = useLocale();
-
-  const toggleLanguage = () => {
-    setLocale(locale === 'en' ? 'ar' : 'en');
-  };
+export function LanguageToggle() {
+  const t = useTranslations('toggles');
+  const locale = useLocale();
+  const pathname = usePathname();
+  const nextLocale = locale === 'en' ? 'ar' : 'en';
+  const segments = pathname.split('/').filter(Boolean);
+  const tail = segments.slice(1).join('/');
+  const switchedPath = `/${nextLocale}${tail ? `/${tail}` : ''}`;
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      onClick={toggleLanguage}
-      className="p-2 rounded-full bg-light-200 dark:bg-dark-100 text-dark-100 dark:text-light-100"
-      aria-label="Toggle language"
+    <Link
+      href={switchedPath}
+      aria-label={t('language')}
+      className="inline-flex h-[2.25rem] items-center gap-[var(--space-2)] rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-3)] text-[length:var(--text-sm)] font-medium transition-colors hover:bg-[var(--color-surface-strong)]"
     >
-      {locale === 'en' ? (
-        <span className="font-medium text-sm">AR</span>
-      ) : (
-        <span className="font-medium text-sm">EN</span>
-      )}
-    </motion.button>
+      <span className="text-[var(--color-text)]">{locale.toUpperCase()}</span>
+      <span className="text-[var(--color-text-muted)]">|</span>
+      <span className="text-[var(--color-text-muted)]">{nextLocale.toUpperCase()}</span>
+    </Link>
   );
 }

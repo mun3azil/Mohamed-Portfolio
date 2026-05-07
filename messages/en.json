@@ -1,0 +1,125 @@
+{
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "blog": {
+    "eyebrow": "Insights for builders",
+    "title": "Blog",
+    "subtitle": "Practical notes on shipping better products.",
+    "emptyState": "Articles are coming soon. Check back shortly."
+  },
+  "blogCta": {
+    "eyebrow": "Need this for your product?",
+    "title": "Let’s turn your traffic into qualified leads",
+    "description": "I design and build conversion-focused web experiences that move visitors to action."
+  },
+  "hero": {
+    "eyebrow": "Full Stack Developer",
+    "title": "I build conversion-focused web products that drive qualified leads.",
+    "subtitle": "From architecture to UX execution, I help teams ship fast, high-performance websites that turn traffic into real client conversations.",
+    "trustSignal": "Trusted workflow: strategy → implementation → measurable business outcomes.",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "years": "Years Experience"
+    }
+  },
+  "actions": {
+    "startProject": "Start a Project",
+    "viewCaseStudy": "View Case Study",
+    "live": "Live Demo",
+    "code": "View Code"
+  },
+  "projects": {
+    "eyebrow": "Selected Work",
+    "title": "Featured Projects",
+    "subtitle": "Selected work focused on usability, performance, and scalable frontend architecture.",
+    "viewProject": "View Project",
+    "notFoundTitle": "Project not found",
+    "caseStudySuffix": "— Case Study",
+    "caseStudyEyebrow": "Case Study",
+    "techDecisions": "Technical Decisions",
+    "measurableOutcome": "Measurable Outcomes",
+    "startProject": "Start a Project",
+    "viewLiveProject": "View Live Project"
+  },
+  "caseStudy": {
+    "title": "E-commerce Growth Case Study",
+    "description": "How a conversion-focused rebuild improved performance and increased qualified inquiries."
+  },
+  "contact": {
+    "title": "Start a Project",
+    "description": "Share your goals and constraints. I will reply with a clear next step within 24 hours.",
+    "responseTime": "I typically respond within 24 hours.",
+    "responseExpectation": "I reply within 24 hours (Sunday–Thursday).",
+    "email": "Email",
+    "contactEmail": "hello@mohamed.dev",
+    "emailValue": "hello@mohamed.dev",
+    "location": "Location",
+    "contactLocation": "Cairo, Egypt",
+    "locationValue": "Cairo, Egypt",
+    "name": "Your Name",
+    "namePlaceholder": "Mohamed Ashraf",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "you@company.com",
+    "projectSummary": "Project Summary",
+    "projectSummaryPlaceholder": "A short description of what you need...",
+    "projectType": "Project Type",
+    "selectProjectType": "Select a project type",
+    "budget": "Budget Range",
+    "selectBudget": "Select your budget",
+    "timeline": "Timeline",
+    "selectTimeline": "Select a timeline",
+    "details": "Project Details",
+    "detailsPlaceholder": "Tell me more about your project...",
+    "optionalFieldsHint": "Optional — you can skip this and I’ll follow up with you.",
+    "progressLabel": "Step {current} / {total}",
+    "trustMessage": "I’ll respond within 24 hours",
+    "continueToStep2": "Continue",
+    "backToStep1": "Back",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully. I’ll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "projectSummaryRequired": "A short project summary is required",
+      "detailsRequired": "Project details are required",
+      "projectTypeRequired": "Project type is required",
+      "budgetRequired": "Budget is required",
+      "timelineRequired": "Timeline is required"
+    },
+    "projectTypes": {
+      "marketingWebsite": "Marketing Website",
+      "saasDashboard": "SaaS Dashboard",
+      "ecommerce": "E-commerce Platform",
+      "designSystem": "Design System",
+      "performanceRefactor": "Performance Refactor"
+    },
+    "budgetRanges": {
+      "range2k5k": "$2,000 - $5,000",
+      "range5k10k": "$5,000 - $10,000",
+      "range10k20k": "$10,000 - $20,000",
+      "range20kPlus": "$20,000+"
+    },
+    "timelineOptions": {
+      "asap": "ASAP",
+      "twoToFourWeeks": "2-4 weeks",
+      "oneToTwoMonths": "1-2 months",
+      "flexible": "Flexible"
+    }
+  },
+  "toggles": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}
